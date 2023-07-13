@@ -5,8 +5,6 @@ export const __deleteAPost = createAsyncThunk(
   'deleteAPost',
   async (payload, thunkAPI) => {
     try {
-      console.log(1, payload)
-      console.log(2, thunkAPI)
       await api.delete(`/posts/${payload}`)
       return payload.id
     } catch (error) {

@@ -6,9 +6,10 @@ export const __getPosts = createAsyncThunk(
   async (payload, thunkAPI) => {
     try {
       const res = (await api('/posts')).data
+      thunkAPI.fulfillWithValue(res)
       return res
     } catch (error) {
-      console.log(error)
+      return thunkAPI.rejectWithValue(error)
     }
   }
 )

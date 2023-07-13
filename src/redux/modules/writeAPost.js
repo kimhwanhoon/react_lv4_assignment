@@ -6,8 +6,9 @@ export const __writeAPost = createAsyncThunk(
   async (payload, thunkAPI) => {
     try {
       await api.post('/posts', payload)
+      return thunkAPI.fulfillWithValue(payload)
     } catch (error) {
-      console.log(error)
+      return thunkAPI.rejectWithValue(error)
     }
   }
 )

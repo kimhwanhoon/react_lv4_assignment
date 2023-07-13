@@ -30,7 +30,7 @@ const STYLEDcontainer = styled.main`
   width: 100%;
   min-width: 700px;
   max-width: 1200px;
-  box-shadow: rgba(153, 153, 153, 0.533) 0px 0px 50px 0px;
+
   #main-main {
     /* overflow: auto; */
     /* width: 100%; */
@@ -38,6 +38,6 @@ const STYLEDcontainer = styled.main`
     flex-direction: column;
     align-items: center;
     background-color: #f8fafc;
-    height: 80vh;
+    height: 85vh;
   }
 `
