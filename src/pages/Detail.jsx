@@ -1,7 +1,8 @@
-import React from "react";
+import React from 'react'
+import PostDetail from '../components/detail/PostDetail'
 
 const Detail = () => {
-  return <div>Detail</div>;
-};
+  return <PostDetail />
+}
 
-export default Detail;
+export default Detail
