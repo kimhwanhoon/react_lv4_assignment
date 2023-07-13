@@ -29,7 +29,7 @@ const THEMEContentForPostDetail = styled.div`
   #detail-header h1 {
     font-size: 1.75rem;
     color: white;
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: 1px;
   }
   #detail-container {

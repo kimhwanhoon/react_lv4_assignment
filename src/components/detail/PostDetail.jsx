@@ -1,7 +1,11 @@
 import React from 'react'
 import THEMEContentForPostDetail from './StyledPostDetail'
+import { useSelector } from 'react-redux'
 
 const PostDetail = () => {
+  const fetchedData = useSelector((state) => state.detailFetcher)
+  console.log(fetchedData)
+
   return (
     <THEMEContentForPostDetail>
       <div id="detail-header">
@@ -15,6 +19,8 @@ const PostDetail = () => {
             id="detail-title"
             type="text"
             name="title"
+            value={fetchedData.title}
+            readOnly
           />
         </div>
         <div>
@@ -23,14 +29,16 @@ const PostDetail = () => {
             className="detail-inputs"
             id="detail-content"
             name="content"
+            value={fetchedData.content}
+            readOnly
           ></textarea>
         </div>
         <div id="detail-date-container">
           <p>
-            Author: <span>to be updated</span>
+            Author: <span>{fetchedData.author}</span>
           </p>
           <p>
-            Date: <span>to be updated</span>
+            Date: <span>{fetchedData.date}</span>
           </p>
         </div>
         <div id="detail-button-container">

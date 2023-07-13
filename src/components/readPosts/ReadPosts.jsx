@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { styled } from 'styled-components'
 import { __getPosts } from '../../redux/modules/getPosts'
 import Detail from '../../pages/Detail'
+import { detailModalToggler } from '../../redux/modules/detailSwitch'
+import { detailDataFetcher } from '../../redux/modules/detailDataFetch'
 
 const ReadPosts = () => {
   const dispatch = useDispatch()
@@ -14,7 +16,16 @@ const ReadPosts = () => {
   const { error, isError, isLoading, posts } = useSelector((state) => {
     return state.getPosts
   })
-
+  const detailModalSwitch = useSelector((state) => {
+    return state.detailPost.detailModalSwitch
+  })
+  const openDetailModal = (e, switcher) => {
+    dispatch(detailModalToggler(!switcher))
+    const _id = e.currentTarget.getAttribute('_id')
+    const targetPost = posts.filter((post) => post.id === +_id)
+    // detail dispatch 만들어서 해야겠다.
+    dispatch(detailDataFetcher(...targetPost))
+  }
   return (
     <STYLEDcontainer>
       <div>
@@ -28,7 +39,12 @@ const ReadPosts = () => {
         ) : (
           posts.map((post) => {
             return (
-              <div className="post-container" key={post.id}>
+              <div
+                className="post-container"
+                key={post.id}
+                _id={post.id}
+                onClick={(e) => openDetailModal(e, detailModalSwitch)}
+              >
                 <h1 className="post-title post-components">{post.title}</h1>
                 <p className="post-content post-components">{post.content}</p>
                 <p className="post-date post-components">Date: {post.date}</p>
@@ -40,7 +56,7 @@ const ReadPosts = () => {
           })
         )}
       </div>
-      <Detail />
+      {detailModalSwitch ? <Detail /> : null}
     </STYLEDcontainer>
   )
 }
