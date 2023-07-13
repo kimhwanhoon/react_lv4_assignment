@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useState } from 'react'
 import ThemeContentForWriteAPost from './StyledWriteAPost'
 import { useDispatch } from 'react-redux'
 import { __writeAPost } from '../../redux/modules/writeAPost'
@@ -7,28 +7,30 @@ import moment from 'moment/moment'
 
 const WriteAPost = () => {
   const dispatch = useDispatch()
-  const titleInput = useRef()
-  const postTextarea = useRef()
+  // const titleInput = useRef()
+  // const postTextarea = useRef()
+  const [titleVal, setTitleVal] = useState('')
+  const [contentVal, setContentVal] = useState('')
 
   const postClickHandler = () => {
-    if (!titleInput.current.value) {
+    if (!titleVal) {
       alert('제목을 입력해주세요')
       return
     }
-    if (!postTextarea.current.value) {
+    if (!contentVal) {
       alert('본문을 입력해주세요')
       return
     }
     const newData = {
       author: 'Hwanhoon Kim',
-      content: postTextarea.current.value,
+      content: contentVal,
       date: dateFormatter(),
-      title: titleInput.current.value,
+      title: titleVal,
     }
     dispatch(__writeAPost(newData))
     dispatch(__getPosts())
-    postTextarea.current.value = ''
-    titleInput.current.value = ''
+    setContentVal('')
+    setTitleVal('')
     alert('포스트 완료!')
   }
 
@@ -37,11 +39,24 @@ const WriteAPost = () => {
       <h1>Write a post</h1>
       <div id="write-container">
         <div id="write-input-container">
-          <input ref={titleInput} type="text" placeholder="Title" />
-          <textarea ref={postTextarea} placeholder="Write a post."></textarea>
+          <input
+            type="text"
+            placeholder="Title"
+            value={titleVal}
+            onChange={(e) => setTitleVal(e.target.value)}
+          />
+          <textarea
+            placeholder="Write a post."
+            value={contentVal}
+            onChange={(e) => setContentVal(e.target.value)}
+          ></textarea>
         </div>
         <div id="write-button-container">
-          <button onClick={() => postClickHandler()}>Post</button>
+          {titleVal.length === 0 || contentVal.length === 0 ? (
+            <button disabled>Post</button>
+          ) : (
+            <button onClick={() => postClickHandler()}>Post</button>
+          )}
         </div>
       </div>
     </ThemeContentForWriteAPost>

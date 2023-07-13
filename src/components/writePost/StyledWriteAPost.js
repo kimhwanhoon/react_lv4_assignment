@@ -19,7 +19,7 @@ const ThemeContentForWriteAPost = styled.div`
     gap: 0.5rem;
   }
   #write-input-container > * {
-    width: 20rem;
+    width: 23rem;
     border-radius: 8px;
     border: none;
     box-shadow:
@@ -59,6 +59,11 @@ const ThemeContentForWriteAPost = styled.div`
   button:hover {
     background-color: #818cf8;
     transform: scale(1.02);
+  }
+  button:disabled {
+    background-color: #ccc;
+    transform: scale(0.9);
+    box-shadow: 1px 1px 10px 0 #bbb;
   }
 `
 
