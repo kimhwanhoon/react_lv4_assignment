@@ -2,13 +2,12 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { styled } from 'styled-components'
 import { __getPosts } from '../../redux/modules/getPosts'
-import Detail from '../../pages/Detail'
-import { detailModalToggler } from '../../redux/modules/detailSwitch'
 import { detailDataFetcher } from '../../redux/modules/detailDataFetch'
+import { useNavigate } from 'react-router-dom'
 
 const ReadPosts = () => {
   const dispatch = useDispatch()
-
+  const navigate = useNavigate()
   useEffect(() => {
     dispatch(__getPosts())
   }, [dispatch])
@@ -16,14 +15,11 @@ const ReadPosts = () => {
   const { error, isError, isLoading, posts } = useSelector((state) => {
     return state.getPosts
   })
-  const detailModalSwitch = useSelector((state) => {
-    return state.detailPost.detailModalSwitch
-  })
-  const openDetailModal = (e, switcher) => {
-    dispatch(detailModalToggler(!switcher))
+
+  const openDetailModal = (e, post) => {
+    navigate(`post/${post.id}`)
     const _id = e.currentTarget.getAttribute('_id')
     const targetPost = posts.filter((post) => post.id === +_id)
-    // detail dispatch 만들어서 해야겠다.
     dispatch(detailDataFetcher(...targetPost))
   }
   return (
@@ -39,24 +35,26 @@ const ReadPosts = () => {
         ) : (
           posts.map((post) => {
             return (
-              <div
-                className="post-container"
-                key={post.id}
-                _id={post.id}
-                onClick={(e) => openDetailModal(e, detailModalSwitch)}
-              >
-                <h1 className="post-title post-components">{post.title}</h1>
-                <p className="post-content post-components">{post.content}</p>
-                <p className="post-date post-components">Date: {post.date}</p>
-                <p className="post-author post-components">
-                  Author: <span className="author-name">{post.author}</span>
-                </p>
+              <div key={post.id}>
+                <div
+                  className="post-container"
+                  _id={post.id}
+                  onClick={(e) => openDetailModal(e, post)}
+                >
+                  <h1 className="post-title post-components">{post.title}</h1>
+                  <p className="post-content post-components">{post.content}</p>
+                  <p className="post-date post-components">Date: {post.date}</p>
+                  <p className="post-author post-components">
+                    Author: <span className="author-name">{post.author}</span>
+                  </p>
+                </div>
+                {/* empty-div 한 이유: overflow때문에 margin bottom이 안 먹혀서 맨 밑의 카드가 보기 흉하게 여백없이 밑과 닿아있기에 임시 방편으로 empty-div를 만듬 */}
+                <div className="empty-div">&nbsp;</div>
               </div>
             )
           })
         )}
       </div>
-      {detailModalSwitch ? <Detail /> : null}
     </STYLEDcontainer>
   )
 }
@@ -100,6 +98,8 @@ const STYLEDcontainer = styled.div`
   }
   .post-content {
     padding: 1rem;
+    line-height: 1.3;
+    text-align: justify;
   }
   .post-date {
     font-size: 0.875rem;

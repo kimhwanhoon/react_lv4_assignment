@@ -4,16 +4,12 @@ const THEMEContentForPostDetail = styled.div`
   position: fixed;
   display: flex;
   flex-direction: column;
-  width: 500px;
-  /* height: 400px; */
+  width: 575px;
   background-color: #f8fafc;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 12px;
-  box-shadow:
-    0 4px 10px 0px #c7d2fe,
-    0 2px 10px 0px #c7d2fe;
   transition: all 0.3s ease-in-out 0s;
 
   #detail-header {
@@ -25,6 +21,7 @@ const THEMEContentForPostDetail = styled.div`
     height: 65px;
     width: 100%;
     background: linear-gradient(292deg, #073738, #243b55);
+    transition: all 0.3s ease-in-out 0s;
   }
   #detail-header h1 {
     font-size: 1.75rem;
@@ -40,6 +37,8 @@ const THEMEContentForPostDetail = styled.div`
     align-items: center;
     background-color: #f8fafc;
     border-radius: 0 0 10px 10px;
+    transition: all 0.3s ease-in-out 0s;
+    position: relative;
   }
 
   #detail-title {
@@ -57,7 +56,7 @@ const THEMEContentForPostDetail = styled.div`
 
   #detail-content {
     border-radius: 4px;
-    height: 120px;
+    height: 200px;
     border: none;
     outline: none;
     font-size: 1rem;
@@ -74,7 +73,7 @@ const THEMEContentForPostDetail = styled.div`
   }
 
   .detail-inputs {
-    width: 350px;
+    width: 450px;
     padding: 1rem;
   }
   #detail-date-container {
@@ -117,6 +116,30 @@ const THEMEContentForPostDetail = styled.div`
   }
   #detail-close-button {
     background-color: #13142f;
+  }
+  /* loading, error */
+  .detail-alert-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 450px;
+  }
+  .detail-alert-container h1 {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+  /* end of loading, error */
+  #delete-icon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: #222;
+    transition: cubic-bezier(0, 0, 0.2, 1) 0.2s;
+    cursor: pointer;
+    font-size: 1.75rem;
+  }
+  #delete-icon:hover {
+    transform: scale(1.1);
   }
 `
 export default THEMEContentForPostDetail

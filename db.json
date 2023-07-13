@@ -2,66 +2,17 @@
   "posts": [
     {
       "author": "Hwanhoon Kim",
-      "content": "Title",
-      "date": "date to be updated",
-      "title": "write a post !",
+      "content": "수정이 되었으면 좋겠네요.1",
+      "date": "July 13th 2023, 7:20 pm",
+      "title": "수정하고있습니다.",
       "id": 1
     },
     {
       "author": "Hwanhoon Kim",
-      "content": "3",
-      "date": "date to be updated",
-      "title": "3",
-      "id": 3
-    },
-    {
-      "author": "Hwanhoon Kim",
-      "content": "2",
-      "date": "date to be updated",
-      "title": "2",
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, a temporibus esse ad facere iste labore perferendis exercitationem tempora sapiente fuga voluptatem quod quis minima, totam deleniti velit vitae ipsam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, a temporibus esse ad facere iste labore perferendis exercitationem tempora sapiente fuga voluptatem quod quis Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, a temporibus esse ad facere iste labore perferendis exercitationem tempora sapiente fuga voluptatem quod quis minima, totam deleniti velit vitae ipsam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, a temporibus esse ad facere iste labore perferendis exercitationem tempora sapiente fuga voluptatem quod quis minima, totam deleniti velit vitae ipsam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, a temporibus esse ad facere iste labore perferendis exercitationem tempora sapiente fuga voluptatem quod quis minima, totam deleniti velit vitae ipsam?minima, totam deleniti velit vitae ipsam?",
+      "date": "July 13th 2023, 7:20 pm",
+      "title": "Title",
       "id": 4
-    },
-    {
-      "author": "Hwanhoon Kim",
-      "content": "4",
-      "date": "date to be updated",
-      "title": "4",
-      "id": 5
-    },
-    {
-      "author": "Hwanhoon Kim",
-      "content": "",
-      "date": "date to be updated",
-      "title": "5",
-      "id": 6
-    },
-    {
-      "author": "Hwanhoon Kim",
-      "content": "",
-      "date": "date to be updated",
-      "title": "6",
-      "id": 7
-    },
-    {
-      "author": "Hwanhoon Kim",
-      "content": "7",
-      "date": "date to be updated",
-      "title": "",
-      "id": 8
-    },
-    {
-      "author": "Hwanhoon Kim",
-      "content": "000",
-      "date": "July 13th 2023, 3:35 pm",
-      "title": "000",
-      "id": 9
-    },
-    {
-      "author": "Hwanhoon Kim",
-      "content": "",
-      "date": "July 13th 2023, 5:18 pm",
-      "title": "",
-      "id": 10
     }
   ],
   "comments": [

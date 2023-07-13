@@ -13,9 +13,9 @@ const WriteAPost = () => {
   const postClickHandler = () => {
     const newData = {
       author: 'Hwanhoon Kim',
-      content: titleInput.current.value,
+      content: postTextarea.current.value,
       date: dateFormatter(),
-      title: postTextarea.current.value,
+      title: titleInput.current.value,
     }
     dispatch(__writeAPost(newData))
     dispatch(__getPosts())

@@ -39,8 +39,10 @@ const ThemeContentForWriteAPost = styled.div`
   }
   #write-button-container {
     display: flex;
+    /* align-items: center; */
   }
   button {
+    /* height: 100px; */
     background-color: #6366f1;
     width: 6rem;
     border: none;
