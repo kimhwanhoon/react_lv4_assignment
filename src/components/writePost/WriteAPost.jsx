@@ -11,6 +11,14 @@ const WriteAPost = () => {
   const postTextarea = useRef()
 
   const postClickHandler = () => {
+    if (!titleInput.current.value) {
+      alert('제목을 입력해주세요')
+      return
+    }
+    if (!postTextarea.current.value) {
+      alert('본문을 입력해주세요')
+      return
+    }
     const newData = {
       author: 'Hwanhoon Kim',
       content: postTextarea.current.value,
@@ -19,6 +27,9 @@ const WriteAPost = () => {
     }
     dispatch(__writeAPost(newData))
     dispatch(__getPosts())
+    postTextarea.current.value = ''
+    titleInput.current.value = ''
+    alert('포스트 완료!')
   }
 
   return (

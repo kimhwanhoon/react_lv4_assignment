@@ -2,26 +2,13 @@
   "posts": [
     {
       "author": "Hwanhoon Kim",
-      "content": "수정이 되었으면 좋겠네요.1",
-      "date": "July 13th 2023, 7:20 pm",
-      "title": "수정하고있습니다.",
-      "id": 1
-    },
-    {
-      "author": "Hwanhoon Kim",
       "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, a temporibus esse ad facere iste labore perferendis exercitationem tempora sapiente fuga voluptatem quod quis minima, totam deleniti velit vitae ipsam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, a temporibus esse ad facere iste labore perferendis exercitationem tempora sapiente fuga voluptatem quod quis Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, a temporibus esse ad facere iste labore perferendis exercitationem tempora sapiente fuga voluptatem quod quis minima, totam deleniti velit vitae ipsam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, a temporibus esse ad facere iste labore perferendis exercitationem tempora sapiente fuga voluptatem quod quis minima, totam deleniti velit vitae ipsam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, a temporibus esse ad facere iste labore perferendis exercitationem tempora sapiente fuga voluptatem quod quis minima, totam deleniti velit vitae ipsam?minima, totam deleniti velit vitae ipsam?",
       "date": "July 13th 2023, 7:20 pm",
       "title": "Title",
       "id": 4
     }
   ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
+  "comments": [],
   "profile": {
     "name": "typicode"
   }

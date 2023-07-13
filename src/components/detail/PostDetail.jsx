@@ -2,26 +2,26 @@ import React, { useEffect, useRef, useState } from 'react'
 import THEMEContentForPostDetail from './StyledPostDetail'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
-import { __getPosts } from '../../redux/modules/getPosts'
 import { __editAPost } from '../../redux/modules/editAPost'
 import DeleteIcon from '@mui/icons-material/Delete'
 import { __deleteAPost } from '../../redux/modules/deleteAPost'
+import useGetPosts from '../../customHooks/useGetPosts'
 
 const PostDetail = () => {
-  const [titleValue, setTitleValue] = useState('')
-  const [contentValue, setContentValue] = useState('')
-
+  useGetPosts()
   const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(__getPosts())
-  }, [dispatch])
-
+  const navigate = useNavigate()
+  const postId = useParams().id
+  const _title = useRef()
+  const _content = useRef()
+  const _editButton = useRef()
   const { error, isError, isLoading, posts } = useSelector(
     (state) => state.getPosts
   )
-
-  const postId = useParams().id
+  const [titleValue, setTitleValue] = useState('')
+  const [contentValue, setContentValue] = useState('')
   const targetPost = posts.find((post) => post.id === +postId)
+
   useEffect(() => {
     if (targetPost) {
       setTitleValue(targetPost?.title)
@@ -30,14 +30,11 @@ const PostDetail = () => {
   }, [targetPost])
 
   // close button => back to home page
-  const navigate = useNavigate()
   const closeClickHandler = () => {
     navigate('/')
   }
+
   // edit button => edit input, textarea
-  const _title = useRef()
-  const _content = useRef()
-  const _editButton = useRef()
   const editClickHandler = () => {
     if (_editButton.current.innerHTML === 'Edit') {
       alert('이제 수정이 가능합니다.')
@@ -45,6 +42,14 @@ const PostDetail = () => {
       _title.current.removeAttribute('readOnly')
       _content.current.removeAttribute('readOnly')
     } else {
+      if (!titleValue) {
+        alert('제목을 입력해주세요')
+        return
+      }
+      if (!contentValue) {
+        alert('본문을 입력해주세요')
+        return
+      }
       alert('수정 완료.')
       _editButton.current.innerHTML = 'Edit'
       _title.current.setAttribute('readOnly', '')
@@ -59,12 +64,14 @@ const PostDetail = () => {
       dispatch(__editAPost(updatedData))
     }
   }
+
   // delete icon => delete a post and navigate back to homepage.
   const deleteIconClickHandler = () => {
     alert('삭제되었습니다.')
     dispatch(__deleteAPost(targetPost.id))
     navigate('/')
   }
+
   return (
     <THEMEContentForPostDetail>
       <div id="detail-header">

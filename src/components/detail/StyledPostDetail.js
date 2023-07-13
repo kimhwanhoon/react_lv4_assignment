@@ -37,7 +37,6 @@ const THEMEContentForPostDetail = styled.div`
     align-items: center;
     background-color: #f8fafc;
     border-radius: 0 0 10px 10px;
-    transition: all 0.3s ease-in-out 0s;
     position: relative;
   }
 

@@ -4,7 +4,6 @@ import api from '../../axios/api'
 export const __writeAPost = createAsyncThunk(
   'writeAPost',
   async (payload, thunkAPI) => {
-    console.log(payload)
     try {
       await api.post('/posts', payload)
     } catch (error) {

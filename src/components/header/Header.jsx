@@ -4,7 +4,7 @@ import { styled } from 'styled-components'
 const Header = () => {
   return (
     <STYLEDcontainer>
-      <h1>Header</h1>
+      <h1>Post anything</h1>
     </STYLEDcontainer>
   )
 }
@@ -25,5 +25,8 @@ const STYLEDcontainer = styled.div`
   transition: all 0.3s ease-in-out 0s;
   min-width: 700px;
   max-width: 1200px;
-  background-size:;
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+  }
 `
