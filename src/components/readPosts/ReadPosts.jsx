@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { styled } from 'styled-components'
 import { __getPosts } from '../../redux/modules/getPosts'
+import Detail from '../../pages/Detail'
 
 const ReadPosts = () => {
   const dispatch = useDispatch()
@@ -39,6 +40,7 @@ const ReadPosts = () => {
           })
         )}
       </div>
+      <Detail />
     </STYLEDcontainer>
   )
 }
